@@ -1,0 +1,67 @@
+{
+    "kind": "collectionType",
+    "collectionName": "articles",
+    "info": {
+        "singularName": "article",
+        "pluralName": "articles",
+        "displayName": "Project",
+        "description": "Create your blog content"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text",
+            "maxLength": 80
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "title"
+        },
+        "cover": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos"
+            ]
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::category.category",
+            "inversedBy": "articles"
+        },
+        "blocks": {
+            "type": "dynamiczone",
+            "components": [
+                "shared.media",
+                "shared.quote",
+                "shared.rich-text",
+                "shared.slider"
+            ]
+        },
+        "client_name": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "year": {
+            "type": "string"
+        },
+        "content": {
+            "type": "richtext"
+        },
+        "url_video_youtube": {
+            "type": "string"
+        }
+    }
+}

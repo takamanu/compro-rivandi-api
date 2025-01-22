@@ -1,0 +1,25 @@
+{
+    "kind": "collectionType",
+    "collectionName": "what_i_dos",
+    "info": {
+        "singularName": "what-i-do",
+        "pluralName": "what-i-dos",
+        "displayName": "What I Do"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "image": {
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ],
+            "type": "media",
+            "multiple": false
+        }
+    }
+}
