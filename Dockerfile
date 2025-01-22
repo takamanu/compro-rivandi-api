@@ -60,6 +60,9 @@ ENV PATH=/opt/node_modules/.bin:$PATH
 RUN chown -R node:node /opt/app
 USER node
 
+# Add volume for image uploads
+VOLUME ["/opt/app/uploads"]
+
 # Expose the default port for Strapi
 EXPOSE 1337
 
