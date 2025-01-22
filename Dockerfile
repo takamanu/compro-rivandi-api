@@ -61,7 +61,7 @@ RUN chown -R node:node /opt/app
 USER node
 
 # Add volume for image uploads
-VOLUME ["/opt/app/uploads"]
+VOLUME ["/opt/app/public/uploads"]
 
 # Expose the default port for Strapi
 EXPOSE 1337
