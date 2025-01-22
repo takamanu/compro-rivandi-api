@@ -393,6 +393,9 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     my_skills: Schema.Attribute.Relation<'oneToMany', 'api::skill.skill'>;
     nice_to_meet_you: Schema.Attribute.RichText;
+    profile_picture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -520,6 +523,7 @@ export interface ApiContactMeContactMe extends Struct.CollectionTypeSchema {
 export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
   collectionName: 'educations';
   info: {
+    description: '';
     displayName: 'Education';
     pluralName: 'educations';
     singularName: 'education';
@@ -534,6 +538,7 @@ export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
     date_from: Schema.Attribute.Date;
     date_to: Schema.Attribute.Date;
     description: Schema.Attribute.RichText;
+    is_current_working: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
