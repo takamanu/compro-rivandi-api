@@ -14,7 +14,7 @@
             "name": "Apache 2.0",
             "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "x-generation-date": "2025-01-22T16:06:34.462Z"
+        "x-generation-date": "2025-01-22T16:46:13.548Z"
     },
     "x-strapi-config": {
         "plugins": [
@@ -6359,6 +6359,9 @@
                                     "type": "string",
                                     "format": "date"
                                 },
+                                "is_current_working": {
+                                    "type": "boolean"
+                                },
                                 "createdAt": {
                                     "type": "string",
                                     "format": "date-time"
@@ -6692,9 +6695,6 @@
                                 },
                                 "description": {
                                     "type": "string"
-                                },
-                                "is_current_working": {
-                                    "type": "boolean"
                                 },
                                 "createdAt": {
                                     "type": "string",
@@ -10853,9 +10853,6 @@
                             "description": {
                                 "type": "string"
                             },
-                            "is_current_working": {
-                                "type": "boolean"
-                            },
                             "locale": {
                                 "type": "string"
                             },
@@ -10940,9 +10937,6 @@
                     },
                     "description": {
                         "type": "string"
-                    },
-                    "is_current_working": {
-                        "type": "boolean"
                     },
                     "createdAt": {
                         "type": "string",
@@ -11260,9 +11254,6 @@
                                 },
                                 "description": {
                                     "type": "string"
-                                },
-                                "is_current_working": {
-                                    "type": "boolean"
                                 },
                                 "createdAt": {
                                     "type": "string",
@@ -12465,6 +12456,9 @@
                                 "type": "string",
                                 "format": "date"
                             },
+                            "is_current_working": {
+                                "type": "boolean"
+                            },
                             "locale": {
                                 "type": "string"
                             },
@@ -12549,6 +12543,9 @@
                     "date_to": {
                         "type": "string",
                         "format": "date"
+                    },
+                    "is_current_working": {
+                        "type": "boolean"
                     },
                     "createdAt": {
                         "type": "string",
@@ -12866,6 +12863,9 @@
                                 "date_to": {
                                     "type": "string",
                                     "format": "date"
+                                },
+                                "is_current_working": {
+                                    "type": "boolean"
                                 },
                                 "createdAt": {
                                     "type": "string",

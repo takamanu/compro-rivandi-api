@@ -27,6 +27,9 @@
     },
     "date_to": {
       "type": "date"
+    },
+    "is_current_working": {
+      "type": "boolean"
     }
   }
 }

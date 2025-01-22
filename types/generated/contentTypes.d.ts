@@ -538,7 +538,6 @@ export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
     date_from: Schema.Attribute.Date;
     date_to: Schema.Attribute.Date;
     description: Schema.Attribute.RichText;
-    is_current_working: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -606,6 +605,7 @@ export interface ApiMyWorkExperienceMyWorkExperience
     date_from: Schema.Attribute.Date;
     date_to: Schema.Attribute.Date;
     description: Schema.Attribute.RichText;
+    is_current_working: Schema.Attribute.Boolean;
     job_title: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

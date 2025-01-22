@@ -28,9 +28,6 @@
     },
     "description": {
       "type": "richtext"
-    },
-    "is_current_working": {
-      "type": "boolean"
     }
   }
 }
