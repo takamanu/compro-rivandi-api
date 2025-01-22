@@ -4,7 +4,8 @@
   "info": {
     "singularName": "my-work-experience",
     "pluralName": "my-work-experiences",
-    "displayName": "My Work Experience"
+    "displayName": "Work Experience",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

@@ -392,22 +392,18 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
     my_skills: Schema.Attribute.Relation<'oneToMany', 'api::skill.skill'>;
-    my_work_experiences: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::my-work-experience.my-work-experience'
-    >;
     nice_to_meet_you: Schema.Attribute.RichText;
     publishedAt: Schema.Attribute.DateTime;
-    software_skills: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::software-skill.software-skill'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     what_i_dos: Schema.Attribute.Relation<
       'oneToMany',
       'api::what-i-do.what-i-do'
+    >;
+    work_experiences: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::my-work-experience.my-work-experience'
     >;
   };
 }
@@ -416,7 +412,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
     description: 'Create your blog content';
-    displayName: 'Article';
+    displayName: 'Project';
     pluralName: 'articles';
     singularName: 'article';
   };
@@ -424,7 +420,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
     >;
@@ -457,38 +452,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     url_video_youtube: Schema.Attribute.String;
     year: Schema.Attribute.String;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    description: 'Create authors for your content';
-    displayName: 'Author';
-    pluralName: 'authors';
-    singularName: 'author';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::author.author'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
@@ -622,7 +585,8 @@ export interface ApiMyWorkExperienceMyWorkExperience
   extends Struct.CollectionTypeSchema {
   collectionName: 'my_work_experiences';
   info: {
-    displayName: 'My Work Experience';
+    description: '';
+    displayName: 'Work Experience';
     pluralName: 'my-work-experiences';
     singularName: 'my-work-experience';
   };
@@ -651,36 +615,33 @@ export interface ApiMyWorkExperienceMyWorkExperience
   };
 }
 
-export interface ApiProjectProject extends Struct.CollectionTypeSchema {
-  collectionName: 'projects';
+export interface ApiSkillCategorySkillCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'skill_categories';
   info: {
-    displayName: 'Project';
-    pluralName: 'projects';
-    singularName: 'project';
+    displayName: 'Skill Category';
+    pluralName: 'skill-categories';
+    singularName: 'skill-category';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    client_name: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::project.project'
+      'api::skill-category.skill-category'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    unique_name: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_video_banner: Schema.Attribute.String;
-    year: Schema.Attribute.String;
   };
 }
 
@@ -705,36 +666,10 @@ export interface ApiSkillSkill extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSoftwareSkillSoftwareSkill
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'software_skills';
-  info: {
-    displayName: 'Software Skill';
-    pluralName: 'software-skills';
-    singularName: 'software-skill';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::software-skill.software-skill'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
+    skill_category: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::skill-category.skill-category'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1280,15 +1215,13 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
-      'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::contact-me.contact-me': ApiContactMeContactMe;
       'api::education.education': ApiEducationEducation;
       'api::global.global': ApiGlobalGlobal;
       'api::my-work-experience.my-work-experience': ApiMyWorkExperienceMyWorkExperience;
-      'api::project.project': ApiProjectProject;
+      'api::skill-category.skill-category': ApiSkillCategorySkillCategory;
       'api::skill.skill': ApiSkillSkill;
-      'api::software-skill.software-skill': ApiSoftwareSkillSoftwareSkill;
       'api::what-i-do.what-i-do': ApiWhatIDoWhatIDo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

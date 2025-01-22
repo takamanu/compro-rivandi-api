@@ -15,7 +15,7 @@
     "nice_to_meet_you": {
       "type": "richtext"
     },
-    "my_work_experiences": {
+    "work_experiences": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::my-work-experience.my-work-experience"
@@ -29,11 +29,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::skill.skill"
-    },
-    "software_skills": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::software-skill.software-skill"
     },
     "what_i_dos": {
       "type": "relation",
