@@ -60,8 +60,15 @@
     "content": {
       "type": "richtext"
     },
-    "url_video_youtube": {
-      "type": "string"
+    "cover_video_content": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -5,21 +5,21 @@ module.exports = ({ env }) => ({
     },
     upload: {
         config: {
-            provider: 'aws-s3',
+            provider: "aws-s3",
             providerOptions: {
-                baseUrl: "https://minio.garnespratama.xyz/compro-rivandi",
+                baseUrl: env("AWS_S3_ENDPOINT_URL") + "/" + env("AWS_BUCKET"),
                 s3Options: {
                     credentials: {
-                        accessKeyId: "Tm3MDviJ6aOBrjF5SKSC",
-                        secretAccessKey: "7EuaAlAlhgKYe0Q3TXJHkZg0585NsZDeoVVZAovs",
+                        accessKeyId: env("AWS_ACCESS_KEY_ID"),
+                        secretAccessKey: env("AWS_ACCESS_SECRET"),
                     },
-                    endpoint: "https://minio.garnespratama.xyz",
-                    region: "us-east-1",
+                    endpoint: env("AWS_S3_ENDPOINT_URL"),
+                    region: env("AWS_REGION"),
                     forcePathStyle: true,
                     params: {
-                        Bucket: "compro-rivandi",
+                        Bucket: env("AWS_BUCKET"),
                     },
-                }
+                },
             },
         },
     },

@@ -384,6 +384,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    download_cv_link: Schema.Attribute.String;
     educations: Schema.Attribute.Relation<
       'oneToMany',
       'api::education.education'
@@ -433,6 +434,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     client_name: Schema.Attribute.String;
     content: Schema.Attribute.RichText;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    cover_video_content: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -453,7 +457,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url_video_youtube: Schema.Attribute.String;
     year: Schema.Attribute.String;
   };
 }

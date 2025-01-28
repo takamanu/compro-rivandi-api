@@ -36,14 +36,18 @@
       "target": "api::what-i-do.what-i-do"
     },
     "profile_picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "download_cv_link": {
+      "type": "string"
     }
   }
 }
