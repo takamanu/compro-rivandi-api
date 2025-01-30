@@ -4,11 +4,19 @@ export default [
   "strapi::cors",
   "strapi::poweredBy",
   "strapi::query",
-  "strapi::body",
+  {
+    name: "strapi::body",
+    config: {
+      enabled: true,
+      multipart: true,
+      formidable: {
+        maxFileSize: 10737418240, // 10GB
+      },
+    },
+  },
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
-  // 'strapi::security',
   {
     name: "strapi::security",
     config: {
