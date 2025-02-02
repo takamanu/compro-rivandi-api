@@ -61,14 +61,20 @@
             "type": "richtext"
         },
         "cover_video_content": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
             "allowedTypes": [
                 "images",
                 "files",
                 "videos",
                 "audios"
-            ],
-            "type": "media",
-            "multiple": false
+            ]
+        },
+        "is_featured": {
+            "type": "boolean",
+            "default": false,
+            "required": true
         }
     }
 }
