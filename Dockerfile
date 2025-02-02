@@ -1,5 +1,5 @@
 # Stage 1: Build Stage
-FROM node:18-alpine as build
+FROM node:18-alpine AS build
 
 # Install build dependencies
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
