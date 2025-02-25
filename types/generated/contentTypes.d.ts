@@ -384,6 +384,8 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    download_cv_file: Schema.Attribute.Media<'files'> &
+      Schema.Attribute.Required;
     download_cv_link: Schema.Attribute.String;
     educations: Schema.Attribute.Relation<
       'oneToMany',
