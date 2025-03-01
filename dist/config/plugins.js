@@ -1,4 +1,3 @@
-// ~/strapi-aws-s3/backend/config/plugins.js
 module.exports = ({ env }) => ({
     documentation: {
         enabled: true,
@@ -15,12 +14,17 @@ module.exports = ({ env }) => ({
                     },
                     endpoint: env("AWS_S3_ENDPOINT_URL"),
                     region: env("AWS_REGION"),
-                    forcePathStyle: true,
+                    forcePathStyle: true, // Pastikan ini tetap ada untuk MinIO atau endpoint custom
                     params: {
                         Bucket: env("AWS_BUCKET"),
                     },
+                    httpOptions: {
+                        timeout: 86400000, // 24 jam
+                    },
+                    maxRetries: 10,
                 },
             },
+            sizeLimit: 3 * 1024 * 1024 * 1024, // 3GB
         },
     },
 });

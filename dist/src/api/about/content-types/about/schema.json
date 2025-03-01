@@ -48,6 +48,14 @@
         },
         "download_cv_link": {
             "type": "string"
+        },
+        "download_cv_file": {
+            "allowedTypes": [
+                "files"
+            ],
+            "type": "media",
+            "multiple": false,
+            "required": true
         }
     }
 }

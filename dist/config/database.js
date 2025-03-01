@@ -24,8 +24,9 @@ exports.default = ({ env }) => {
                 },
             },
             pool: {
-                min: env.int("DATABASE_POOL_MIN", 2),
-                max: env.int("DATABASE_POOL_MAX", 10),
+                min: env.int("DATABASE_POOL_MIN", 5), // Naikkan dari 2 ke 5
+                max: env.int("DATABASE_POOL_MAX", 20), // Naikkan dari 10 ke 20
+                acquireTimeoutMillis: 120000, // Timeout naik ke 2 menit
             },
         },
         postgres: {

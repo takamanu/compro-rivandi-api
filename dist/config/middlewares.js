@@ -12,7 +12,7 @@ exports.default = [
             enabled: true,
             multipart: true,
             formidable: {
-                maxFileSize: 10737418240, // 10GB
+                maxFileSize: 10 * 1024 * 1024 * 1024, // 10GB
             },
         },
     },
